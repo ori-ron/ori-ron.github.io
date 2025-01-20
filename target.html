@@ -5,6 +5,8 @@
   <li><a href="https://ori-ron.github.io/bad.html" target="_blank" rel="opener">opener</a></li>
   <li><a href="https://ori-ron.github.io/bad.html" target="_blank" rel="referer">referer</a></li>
   <li><a href="https://ori-ron.github.io/bad.html" target="_blank" rel="referrer">referrer</a></li>
+  <li><a href="https://ori-ron.github.io/bad.html" onclick="window.open('https://ori-ron.github.io/bad.html')">a href onclick</a></li>
+  <li><a onclick="window.open('https://ori-ron.github.io/bad.html')">a ONLY onclick</a></li>
   
   <button onclick="window.open('https://ori-ron.github.io/bad.html')">Vulnerable by default?</button>
   <button onclick="var newwin = window.open();newwin.open('https://ori-ron.github.io/bad.html')">partial fix (probably not working)</button>

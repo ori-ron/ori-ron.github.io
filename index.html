@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ori Ron - Security Researcher</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Reset and Base Styles */
         * {
@@ -13,27 +14,65 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #8B5CF6;
+            --primary-light: #A78BFA;
+            --primary-dark: #7C3AED;
+            --bg-dark: #1a1a1a;
+            --bg-light: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #2c2f36;
-            color: #fff;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
-            padding-top: 60px; /* Space for fixed navbar */
+            padding-top: 60px;
+        }
+
+        /* Link Styles */
+        a {
+            color: var(--primary-light);
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        a:not(.back-to-top):after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-light);
+            transition: width 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        a:not(.back-to-top):hover:after {
+            width: 100%;
         }
 
         /* Navbar Styles */
         .navbar {
-            background-color: #1e2328;
+            background-color: var(--bg-dark);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             padding: 1rem;
             transition: all 0.3s ease;
+            border-bottom: 1px solid var(--bg-light);
         }
 
         .nav-content {
@@ -44,19 +83,26 @@
             align-items: center;
         }
 
+        .nav-content h2 {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.5rem;
+            color: var(--primary-light);
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
+            font-family: 'Fira Code', monospace;
         }
 
         .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            letter-spacing: -0.5px;
         }
 
         .nav-links a:hover {
-            color: #f5a623;
+            color: var(--primary-light);
         }
 
         .hamburger {
@@ -64,28 +110,29 @@
             cursor: pointer;
             background: none;
             border: none;
-            color: #fff;
+            color: var(--text-primary);
             font-size: 1.5rem;
         }
 
         /* Main Content Styles */
         header {
-            background-color: #1e2328;
+            background-color: var(--bg-light);
             padding: 4rem 2rem;
             text-align: center;
             margin-bottom: 2rem;
+            border-bottom: 1px solid var(--primary-dark);
         }
 
         .container {
             width: 90%;
             max-width: 1200px;
             margin: auto;
-            padding-bottom: 60px; /* Space for footer */
+            padding-bottom: 60px;
         }
 
         section {
             padding: 3rem 0;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid var(--bg-light);
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
@@ -99,12 +146,32 @@
         h1 {
             font-size: 2.5em;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         h2 {
             font-size: 2em;
-            color: #f5a623;
+            color: var(--primary-light);
             margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Lists Styling */
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        ul li:before {
+            content: '-';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
         }
 
         /* Back to Top Button */
@@ -112,8 +179,8 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: #f5a623;
-            color: #1e2328;
+            background: var(--primary-color);
+            color: var(--text-primary);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -124,10 +191,31 @@
             opacity: 0;
             transition: all 0.3s ease;
             cursor: pointer;
+            box-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
         .back-to-top.visible {
             opacity: 1;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--bg-light);
+            text-align: center;
+            padding: 1rem 0;
+            width: 100%;
+            bottom: 0;
+            border-top: 1px solid var(--bg-light);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
         /* Mobile Styles */
@@ -138,10 +226,11 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background-color: #1e2328;
+                background-color: var(--bg-dark);
                 flex-direction: column;
                 padding: 1rem;
                 gap: 1rem;
+                border-bottom: 1px solid var(--bg-light);
             }
 
             .nav-links.active {
@@ -155,6 +244,7 @@
     </style>
 </head>
 <body>
+    <!-- Rest of the HTML remains the same -->
     <nav class="navbar">
         <div class="nav-content">
             <h2>Ori Ron</h2>
@@ -224,6 +314,7 @@
         <p>&copy; 2025 Ori Ron. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript remains the same -->
     <script>
         // Hamburger Menu Toggle
         const hamburger = document.querySelector('.hamburger');

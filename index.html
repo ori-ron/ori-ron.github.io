@@ -4,111 +4,275 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ori Ron - Security Researcher</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #2c2f36;
             color: #fff;
-            margin: 0;
-            padding: 0;
             line-height: 1.6;
+            padding-top: 60px; /* Space for fixed navbar */
         }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #1e2328;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f5a623;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        /* Main Content Styles */
         header {
             background-color: #1e2328;
-            padding: 20px;
+            padding: 4rem 2rem;
             text-align: center;
+            margin-bottom: 2rem;
         }
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 1200px;
             margin: auto;
+            padding-bottom: 60px; /* Space for footer */
         }
+
         section {
-            padding: 20px 0;
+            padding: 3rem 0;
             border-bottom: 1px solid #444;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+        }
+
         h2 {
             font-size: 2em;
             color: #f5a623;
-            margin-bottom: 10px;
+            margin-bottom: 1.5rem;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        footer {
-            background-color: #1e2328;
-            text-align: center;
-            padding: 10px 0;
+
+        /* Back to Top Button */
+        .back-to-top {
             position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        a {
-            color: #f5a623;
+            bottom: 20px;
+            right: 20px;
+            background: #f5a623;
+            color: #1e2328;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1e2328;
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h2>Ori Ron</h2>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#bio">Bio</a>
+                <a href="#publications">Publications</a>
+                <a href="#conferences">Conferences</a>
+                <a href="#cves">CVEs</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-<header>
-    <h1>Ori Ron</h1>
-    <p>Application Security Researcher</p>
-</header>
+    <header>
+        <h1>Ori Ron</h1>
+        <p>Application Security Researcher</p>
+    </header>
 
-<div class="container">
-    <section id="bio">
-        <h2>Bio</h2>
-        <p>## PLACEHOLDER</p>
-    </section>
+    <div class="container">
+        <section id="bio">
+            <h2>Bio</h2>
+            <p>## PLACEHOLDER</p>
+        </section>
 
-    <section id="publications">
-        <h2>Publications</h2>
-        <ul>
-            <li><a href="#">## PLACEHOLDER</a></li>
-            <li><a href="#">## PLACEHOLDER</a></li>
-        </ul>
-    </section>
+        <section id="publications">
+            <h2>Publications</h2>
+            <ul>
+                <li><a href="#">## PLACEHOLDER</a></li>
+                <li><a href="#">## PLACEHOLDER</a></li>
+            </ul>
+        </section>
 
-    <section id="conferences">
-        <h2>Conferences</h2>
-        <ul>
-            <li>## PLACEHOLDER</li>
-            <li>## PLACEHOLDER</li>
-        </ul>
-    </section>
+        <section id="conferences">
+            <h2>Conferences</h2>
+            <ul>
+                <li>## PLACEHOLDER</li>
+                <li>## PLACEHOLDER</li>
+            </ul>
+        </section>
 
-    <section id="cves">
-        <h2>Notable CVEs</h2>
-        <ul>
-            <li>## PLACEHOLDER</li>
-        </ul>
-    </section>
+        <section id="cves">
+            <h2>Notable CVEs</h2>
+            <ul>
+                <li>## PLACEHOLDER</li>
+            </ul>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>If you're interested in collaborating or have any inquiries, feel free to reach out to me:</p>
-        <ul>
-            <li>Email: <a href="mailto:PLACEHOLDER@example.com">PLACEHOLDER@example.com</a></li>
-            <li>Twitter: <a href="https://twitter.com/PLACEHOLDER" target="_blank">@PLACEHOLDER</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/ori-ron-40099912b/" target="_blank">Ori Ron</a></li>
-        </ul>
-    </section>
-</div>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>If you're interested in collaborating or have any inquiries, feel free to reach out to me:</p>
+            <ul>
+                <li>Email: <a href="mailto:PLACEHOLDER@example.com">PLACEHOLDER@example.com</a></li>
+                <li>Twitter: <a href="https://twitter.com/PLACEHOLDER" target="_blank">@PLACEHOLDER</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/ori-ron-40099912b/" target="_blank">Ori Ron</a></li>
+            </ul>
+        </section>
+    </div>
 
-<footer>
-    <p>&copy; 2025 Ori Ron. All rights reserved.</p>
-</footer>
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
+    <footer>
+        <p>&copy; 2025 Ori Ron. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-content')) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Scroll Animation for Sections
+        const sections = document.querySelectorAll('section');
+        const backToTop = document.querySelector('.back-to-top');
+
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Back to Top Button
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

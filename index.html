@@ -96,7 +96,7 @@
         
         .container {
             width: 100%;
-            padding: 1rem 0;
+            padding: 0rem 0;
         }
         
         .profile {
@@ -198,14 +198,26 @@
             margin: 1rem 0;
         }
         
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
         .social-link {
             color: var(--text-color);
-            font-size: 1rem;
-            transition: color 0.2s;
+            transition: color 0.3s, transform 0.2s;
+            display: inline-block;
         }
-        
+
+        .social-link i {
+            font-size: 1.5rem;
+        }
+
         .social-link:hover {
             color: var(--accent-color);
+            transform: translateY(-3px);
         }
         
         .terminal-header {
@@ -252,6 +264,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
@@ -365,9 +378,10 @@
         <div class="terminal-line"><span class="terminal-prompt">$</span> echo "github: github.com/oriron"</div>
         
         <div class="social-links">
-            <!--<a href="https://github.com/ori-ron" class="social-link">GitHub</a>
-            <a href="https://medium.com/@ori.ron" class="social-link">Medium</a>-->
-            <a href="https://www.linkedin.com/in/ori-ron64/" class="social-link">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/ori-ron64/" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ori-ron" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://medium.com/@ori.ron" class="social-link"><i class="fab fa-medium"></i></a>
+            <br/>
             <a href="https://checkmarx.com/author/ori-ron/" class="social-link">Blog</a>
             <a href="https://sessionize.com/ori-ron" class="social-link">Sessionize</a>
         </div>

